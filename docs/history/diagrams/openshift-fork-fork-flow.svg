@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 536 752" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>From upstream commit to an OpenShift cluster</title>
+  <desc>Changes land in k8snetworkplumbingwg/multus-cni, are merged into openshift/multus-cni by sync PRs, built by ART into the OCP release payload, and deployed to clusters by the Cluster Network Operator.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="536" height="752" fill="#ffffff" class="f-bg"/>
+  <g id="node-up">
+    <rect x="24" y="40" width="288" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="168" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">k8snetworkplumbingwg/multus-cni</text>
+  </g>
+  <g id="node-fork">
+    <rect x="200" y="152" width="192" height="80" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="296" y="187.09">openshift/multus-cni</tspan><tspan x="296" y="207.09">main</tspan></text>
+  </g>
+  <g id="node-carry">
+    <path d="M344 24 L504 24 L504 96 Q464 84 424 96 Q384 108 344 96 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="424" y="55.09">Downstream PRs</tspan><tspan x="424" y="75.09">(Jira)</tspan></text>
+  </g>
+  <g id="node-art">
+    <rect x="120" y="288" width="160" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="200" y="317.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">ART image build</text>
+  </g>
+  <g id="node-payload">
+    <path d="M104 400 A96 8 0 0 1 296 400 L296 448 A96 8 0 0 1 104 448 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <path d="M104 400 A96 8 0 0 0 296 400" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="200" y="435.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">OCP release payload</text>
+  </g>
+  <g id="node-cno">
+    <rect x="120" y="504" width="160" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="200" y="539.09">Cluster Network</tspan><tspan x="200" y="559.09">Operator</tspan></text>
+  </g>
+  <g id="node-cluster">
+    <rect x="104" y="632" width="192" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="104" y1="648" x2="296" y2="648" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="200" y="683.09">Multus DaemonSet on</tspan><tspan x="200" y="703.09">nodes</tspan></text>
+  </g>
+  <g id="node-ushift">
+    <rect x="312" y="280" width="160" height="64" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="312" y1="296" x2="472" y2="296" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="392" y="325.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">MicroShift image</text>
+  </g>
+  <g id="edge-up--fork">
+    <path d="M216 88 L216 120 L280 120 L280 152" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="248" y="136.63" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">sync PR</text>
+  </g>
+  <g id="edge-carry--fork">
+    <path d="M424 96 L424 128 L376 128 L376 152" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-fork--art">
+    <path d="M216 232 L216 288" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="283.75" y="264.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">Dockerfile.openshift</text>
+  </g>
+  <g id="edge-art--payload">
+    <path d="M200 336 L200 392" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-payload--cno">
+    <path d="M200 456 L200 504" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-cno--cluster">
+    <path d="M200 584 L200 632" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-fork--ushift">
+    <path d="M376 232 L376 280" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="445.46" y="260.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">Dockerfile.microshift</text>
+  </g>
+  <g id="edge-fork--up">
+    <path d="M296 152 L296 112 L232 112 L232 88" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="289.93" y="104.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">fix upstream first</text>
+  </g>
+</svg>

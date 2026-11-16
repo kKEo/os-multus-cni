@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376 384" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Where the upstream repository lived</title>
+  <desc>Multus moved from the Intel-Corp GitHub organisation to intel, and in March 2021 to the community-owned k8snetworkplumbingwg organisation; the OpenShift fork, which dates from 2018, now tracks it.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="376" height="384" fill="#ffffff" class="f-bg"/>
+  <g id="node-intelcorp">
+    <rect x="72" y="24" width="192" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="168" y="53.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Intel-Corp/multus-cni</text>
+  </g>
+  <g id="node-intel">
+    <rect x="96" y="120" width="144" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="168" y="149.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">intel/multus-cni</text>
+  </g>
+  <g id="node-npwg">
+    <rect x="24" y="216" width="288" height="48" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text x="168" y="245.09" text-anchor="middle" font-size="14" fill="#ffffff" class="f-at">k8snetworkplumbingwg/multus-cni</text>
+  </g>
+  <g id="node-ocp">
+    <rect x="72" y="312" width="192" height="48" rx="4" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" class="f-nf s-ns"/>
+    <text x="168" y="341.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">openshift/multus-cni</text>
+  </g>
+  <g id="edge-intelcorp--intel">
+    <path d="M168 72 L168 120" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="205.79" y="100.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">2017-2018</text>
+  </g>
+  <g id="edge-intel--npwg">
+    <path d="M168 168 L168 216" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="202.38" y="196.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">Mar 2021</text>
+  </g>
+  <g id="edge-npwg--ocp">
+    <path d="M168 264 L168 312" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="259.73" y="292.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">tracked by fork (since 2018)</text>
+  </g>
+</svg>

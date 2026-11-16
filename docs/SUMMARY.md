@@ -27,6 +27,12 @@
   * [Comparison matrix](network-patterns/comparison-matrix.md)
   * [Pitfalls and troubleshooting](network-patterns/troubleshooting.md)
 
+# History
+
+* [History of Multus CNI](history/README.md)
+  * [Upstream history](history/upstream.md)
+  * [The OpenShift fork](history/openshift-fork.md)
+
 # Contributing
 
 * [Development and support](development.md)
