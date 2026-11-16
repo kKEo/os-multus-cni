@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528 448" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Lab topology</title>
+  <desc>Two kind worker nodes are Docker containers on the same Docker bridge network. Each pod keeps eth0 on the cluster network and gets net1, a macvlan child of its node's eth0, so the two pods reach each other directly over the Docker bridge.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-mu{fill:#94a3b8}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <rect x="0" y="0" width="528" height="448" fill="#ffffff" class="f-bg"/>
+  <g id="group-w1">
+    <rect x="24" y="24" width="224" height="272" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="36" y="48.37" font-size="12" fill="#6b7280" class="f-mu">multus-lab-worker</text>
+  </g>
+  <g id="group-w2">
+    <rect x="280" y="24" width="224" height="272" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="292" y="48.37" font-size="12" fill="#6b7280" class="f-mu">multus-lab-worker2</text>
+  </g>
+  <g id="node-podb">
+    <rect x="40" y="64" width="192" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="136" y="99.09">pod-b</tspan><tspan x="136" y="119.09">eth0 + net1 10.20.0.11</tspan></text>
+  </g>
+  <g id="node-podc">
+    <rect x="296" y="64" width="192" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="392" y="99.09">pod-c</tspan><tspan x="392" y="119.09">eth0 + net1 10.20.0.12</tspan></text>
+  </g>
+  <g id="node-eth1">
+    <rect x="56" y="192" width="160" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="136" y="227.09">node eth0</tspan><tspan x="136" y="247.09">(macvlan parent)</tspan></text>
+  </g>
+  <g id="node-eth2">
+    <rect x="312" y="192" width="160" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="392" y="227.09">node eth0</tspan><tspan x="392" y="247.09">(macvlan parent)</tspan></text>
+  </g>
+  <g id="node-bridge">
+    <path d="M184 344 L344 344 A8 40 0 0 1 344 424 L184 424 A8 40 0 0 1 184 344 Z" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <path d="M344 344 A8 40 0 0 0 344 424" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="264" y="379.09">Docker bridge</tspan><tspan x="264" y="399.09">network "kind"</tspan></text>
+  </g>
+  <g id="edge-podb--eth1">
+    <path d="M136 144 L136 192" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ed"/>
+    <text x="154.36" y="172.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">net1</text>
+  </g>
+  <g id="edge-podc--eth2">
+    <path d="M392 144 L392 192" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ed"/>
+    <text x="410.36" y="172.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">net1</text>
+  </g>
+  <g id="edge-eth1--bridge">
+    <path d="M136 272 L136 312 L192 312 L192 344" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ed"/>
+  </g>
+  <g id="edge-eth2--bridge">
+    <path d="M392 272 L392 312 L336 312 L336 344" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ed"/>
+  </g>
+</svg>

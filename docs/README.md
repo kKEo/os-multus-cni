@@ -10,6 +10,10 @@ Multus follows the Kubernetes Network Custom Resource Definition De-facto Standa
 
 ## Where to start
 
+New to Multus? Follow the [Learning path](learning-path/README.md): a staged route from CNI basics, through a hands-on lab on a local cluster, to network design and the code.
+
+If you already know what you are looking for:
+
 * [Quickstart Guide](quickstart.md) - install Multus and attach a second interface to a pod.
 * [How to use](how-to-use.md) - complete usage guide.
 * [Configuration reference](configuration.md) - all configuration options.

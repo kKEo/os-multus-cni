@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 456" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>How a pod gets its network without Multus</title>
+  <desc>The kubelet asks the container runtime for a pod sandbox; the runtime creates a network namespace and executes the CNI plugin, which calls an IPAM plugin and returns the interface and IP.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="872" height="456" fill="#ffffff" class="f-bg"/>
+  <g id="node-kubelet">
+    <line x1="72" y1="104" x2="72" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="24" y="40" width="96" height="64" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="24" y1="56" x2="120" y2="56" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="72" y="85.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">kubelet</text>
+  </g>
+  <g id="node-runtime">
+    <line x1="256" y1="104" x2="256" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="168" y="24" width="176" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="256" y="59.09">Container runtime</tspan><tspan x="256" y="79.09">(containerd, CRI-O)</tspan></text>
+  </g>
+  <g id="node-plugin">
+    <line x1="576" y1="104" x2="576" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="480" y="24" width="192" height="80" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="576" y="59.09">CNI plugin</tspan><tspan x="576" y="79.09">(binary in /opt/cni/bin)</tspan></text>
+  </g>
+  <g id="node-ipam">
+    <line x1="784" y1="104" x2="784" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="720" y="56" width="128" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="784" y="85.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">IPAM plugin</text>
+  </g>
+  <g id="edge-kubelet--runtime">
+    <path d="M72 144 L256 144" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="164" y="136.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">RunPodSandbox</text>
+  </g>
+  <g id="edge-runtime--runtime">
+    <path d="M256 184 L288 184 L288 200 L256 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="379.47" y="196.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">create network namespace</text>
+  </g>
+  <g id="edge-runtime--plugin">
+    <path d="M256 240 L576 240" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="416" y="232.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ADD (config on stdin)</text>
+  </g>
+  <g id="edge-plugin--ipam">
+    <path d="M576 280 L784 280" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="680" y="272.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ADD</text>
+  </g>
+  <g id="edge-ipam--plugin">
+    <path d="M784 320 L576 320" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="680" y="312.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">IP address</text>
+  </g>
+  <g id="edge-plugin--runtime">
+    <path d="M576 360 L256 360" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="416" y="352.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">result (interface, IP, routes)</text>
+  </g>
+  <g id="edge-runtime--kubelet">
+    <path d="M256 400 L72 400" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="164" y="392.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">pod IP</text>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 456" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>What Multus does on a CNI ADD</title>
+  <desc>The runtime calls Multus once. Multus reads the pod and its NetworkAttachmentDefinitions from the API server, calls the default network plugin for eth0 and one delegate per attachment for net1, writes the network-status annotation and returns the default network result.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="936" height="456" fill="#ffffff" class="f-bg"/>
+  <g id="node-runtime">
+    <line x1="80" y1="120" x2="80" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="24" y="24" width="112" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="24" y1="40" x2="136" y2="40" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="80" y="75.09">Container</tspan><tspan x="80" y="95.09">runtime</tspan></text>
+  </g>
+  <g id="node-multus">
+    <line x1="224" y1="120" x2="224" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="176" y="72" width="96" height="48" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text x="224" y="101.09" text-anchor="middle" font-size="14" fill="#ffffff" class="f-at">Multus</text>
+  </g>
+  <g id="node-api">
+    <line x1="456" y1="120" x2="456" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="384" y="72" width="144" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="456" y="101.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Kubernetes API</text>
+  </g>
+  <g id="node-defcni">
+    <line x1="648" y1="120" x2="648" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="568" y="40" width="160" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="648" y="75.09">Default network</tspan><tspan x="648" y="95.09">plugin</tspan></text>
+  </g>
+  <g id="node-nadcni">
+    <line x1="840" y1="120" x2="840" y2="432" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="768" y="24" width="144" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="840" y="57.09">Delegate plugin</tspan><tspan x="840" y="77.09">(for example</tspan><tspan x="840" y="97.09">macvlan)</tspan></text>
+  </g>
+  <g id="edge-runtime--multus">
+    <path d="M80 160 L224 160" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="152" y="152.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ADD</text>
+  </g>
+  <g id="edge-getpod">
+    <path d="M224 200 L456 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="340" y="192.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">get Pod and annotations</text>
+  </g>
+  <g id="edge-getnad">
+    <path d="M224 240 L456 240" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="340" y="232.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">get NetworkAttachmentDefinition</text>
+  </g>
+  <g id="edge-multus--defcni">
+    <path d="M224 280 L648 280" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="340" y="272.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ADD eth0</text>
+  </g>
+  <g id="edge-multus--nadcni">
+    <path d="M224 320 L840 320" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="340" y="312.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ADD net1</text>
+  </g>
+  <g id="edge-status">
+    <path d="M224 360 L456 360" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="340" y="352.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">write network-status</text>
+  </g>
+  <g id="edge-result">
+    <path d="M224 400 L80 400" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="152" y="392.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">result of eth0</text>
+  </g>
+</svg>

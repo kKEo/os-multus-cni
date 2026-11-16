@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 368" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>The Multus CNI learning path</title>
+  <desc>Five stages. Foundations, core concepts and the hands-on lab are for everyone; after the lab the path splits into designing and operating secondary networks, and reading the code.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-mu{fill:#94a3b8}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="864" height="368" fill="#ffffff" class="f-bg"/>
+  <g id="group-all">
+    <rect x="24" y="112" width="544" height="144" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="36" y="136.37" font-size="12" fill="#6b7280" class="f-mu">Everyone</text>
+  </g>
+  <g id="group-ops">
+    <rect x="616" y="24" width="224" height="144" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="628" y="48.37" font-size="12" fill="#6b7280" class="f-mu">Operators and platform teams</text>
+  </g>
+  <g id="group-dev">
+    <rect x="640" y="200" width="176" height="144" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="652" y="224.37" font-size="12" fill="#6b7280" class="f-mu">Contributors</text>
+  </g>
+  <g id="node-s0">
+    <rect x="40" y="152" width="128" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="104" y="187.09">Stage 0</tspan><tspan x="104" y="207.09">Foundations</tspan></text>
+  </g>
+  <g id="node-s1">
+    <rect x="216" y="152" width="144" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="288" y="187.09">Stage 1</tspan><tspan x="288" y="207.09">Core concepts</tspan></text>
+  </g>
+  <g id="node-s2">
+    <rect x="408" y="152" width="144" height="80" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="480" y="187.09">Stage 2</tspan><tspan x="480" y="207.09">Hands-on lab</tspan></text>
+  </g>
+  <g id="node-s3">
+    <rect x="640" y="64" width="176" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="728" y="99.09">Stage 3</tspan><tspan x="728" y="119.09">Design and operate</tspan></text>
+  </g>
+  <g id="node-s4">
+    <rect x="656" y="240" width="144" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="728" y="275.09">Stage 4</tspan><tspan x="728" y="295.09">Read the code</tspan></text>
+  </g>
+  <g id="edge-s0--s1">
+    <path d="M168 192 L216 192" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-s1--s2">
+    <path d="M360 192 L408 192" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-s2--s3">
+    <path d="M552 168 L600 168 L600 104 L640 104" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-s2--s4">
+    <path d="M552 216 L608 216 L608 280 L656 280" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+</svg>
