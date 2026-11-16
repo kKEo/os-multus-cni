@@ -40,6 +40,8 @@ edges:
 | [3. Design and operate](design-and-operate.md) | Choosing plugins and IPAM, routing, Multus options, troubleshooting | Review a NetworkAttachmentDefinition and predict how it behaves | 2 to 3 h |
 | [4. Read the code](code-tour.md) | Repository layout, the path of a CNI ADD through the code, build and tests | Find the function behind a given behaviour and run its tests | 2 h |
 
+After the lab, the optional [Lab follow-up: Test Multus configurations](config-lab.md) shows how to compare annotations, daemon options and deployment types with checks that pass or fail.
+
 Keep the [Glossary and cheat sheet](glossary.md) open while you work through the stages.
 
 ## Pick your track

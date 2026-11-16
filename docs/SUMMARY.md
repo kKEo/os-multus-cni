@@ -8,6 +8,7 @@
   * [Stage 0: Foundations](learning-path/foundations.md)
   * [Stage 1: Core concepts](learning-path/concepts.md)
   * [Stage 2: Hands-on lab](learning-path/first-lab.md)
+  * [Lab follow-up: Test Multus configurations](learning-path/config-lab.md)
   * [Stage 3: Design and operate](learning-path/design-and-operate.md)
   * [Stage 4: Read the code](learning-path/code-tour.md)
   * [Glossary and cheat sheet](learning-path/glossary.md)
@@ -42,6 +43,10 @@
 * [History of Multus CNI](history/README.md)
   * [Upstream history](history/upstream.md)
   * [The OpenShift fork](history/openshift-fork.md)
+
+# Testing
+
+* [End-to-end test coverage](testing/README.md)
 
 # Contributing
 

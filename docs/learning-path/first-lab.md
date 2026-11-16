@@ -35,7 +35,9 @@ edges:
 
 You need Docker, [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation), `kubectl` and `jq`.
 
-> **Tested with** kind v0.27.0 (Kubernetes v1.32.2 nodes), CNI plugins v1.10.0 and the `snapshot-thick` Multus image, on Docker Desktop, in November 2026. Every command and output on this page comes from that run. Addresses, MAC addresses and pod name suffixes will differ on your machine.
+> **Tested with** kind v0.27.0 (Kubernetes v1.32.2 nodes), CNI plugins v1.10.0 and the `snapshot-thick` Multus image, on Docker Desktop, in November 2026. The outputs on this page come from that run. Addresses, MAC addresses and pod name suffixes will differ on your machine.
+
+> **Give Docker enough memory.** Three kind nodes plus Multus need several gigabytes. On a small machine, stop other containers first; an overloaded Docker VM shows up as `TLS handshake timeout` errors from `kubectl` and a Multus rollout that never finishes.
 
 > **Your kubectl context changes.** `kind create cluster` adds a context called `kind-multus-lab` to your kubeconfig and makes it the current one. Switch back when you are done, especially if you also work with real clusters.
 
@@ -561,3 +563,5 @@ Bind the test to the interface (`ping -I net1`) and compare the result with the 
 </details>
 
 **Next:** [Stage 3: Design and operate](design-and-operate.md) if you will run secondary networks, or [Stage 4: Read the code](code-tour.md) if you want to change Multus.
+
+**Optional:** [Lab follow-up: Test Multus configurations](config-lab.md) turns what you did here into repeatable tests of annotations, daemon options, the thin deployment and your own build.

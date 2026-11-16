@@ -49,7 +49,7 @@ sudo ./hack/test-go.sh
 
 ## How do I run the e2e tests?
 
-Check the `README.md` in the `./e2e/` folder.
+Check the `README.md` in the `./e2e/` folder. [End-to-end test coverage](testing/README.md) describes what the suite checks and what it leaves out.
 
 ## What are the best practices for logging?
 
