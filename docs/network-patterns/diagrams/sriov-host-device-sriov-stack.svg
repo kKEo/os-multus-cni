@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 944 424" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Attaching an SR-IOV VF</title>
+  <desc>The device plugin advertises VFs, kubelet allocates one to the pod, Multus maps it to the NAD by resourceName and passes the deviceID to sriov-cni, which moves the VF into the pod.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="944" height="424" fill="#ffffff" class="f-bg"/>
+  <g id="node-dp">
+    <line x1="120" y1="88" x2="120" y2="400" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="24" y="40" width="192" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="120" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">SR-IOV device plugin</text>
+  </g>
+  <g id="node-kubelet">
+    <line x1="360" y1="88" x2="360" y2="400" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="312" y="24" width="96" height="64" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="312" y1="40" x2="408" y2="40" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="360" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">kubelet</text>
+  </g>
+  <g id="node-multus">
+    <line x1="504" y1="88" x2="504" y2="400" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="456" y="40" width="96" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="504" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Multus</text>
+  </g>
+  <g id="node-cni">
+    <line x1="672" y1="88" x2="672" y2="400" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="624" y="40" width="96" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="672" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">sriov-cni</text>
+  </g>
+  <g id="node-pod">
+    <line x1="864" y1="88" x2="864" y2="400" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="808" y="40" width="112" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="864" y="69.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Pod netns</text>
+  </g>
+  <g id="edge-dp--kubelet">
+    <path d="M120 128 L360 128" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="240" y="120.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">advertise intel.com/sriov_netdevice</text>
+  </g>
+  <g id="edge-kubelet--dp">
+    <path d="M360 168 L120 168" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="240" y="160.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">allocate 1 VF for the pod</text>
+  </g>
+  <g id="edge-kubelet--multus">
+    <path d="M360 208 L504 208" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="432" y="200.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">CNI ADD</text>
+  </g>
+  <g id="edge-multus--kubelet">
+    <path d="M504 248 L360 248" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="432" y="240.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">read pod resources</text>
+  </g>
+  <g id="edge-multus--cni">
+    <path d="M504 288 L672 288" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="588" y="280.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">NAD config + deviceID</text>
+  </g>
+  <g id="edge-cni--pod">
+    <path d="M672 328 L864 328" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="768" y="320.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">VLAN, spoofchk, move VF</text>
+  </g>
+  <g id="edge-cni--multus">
+    <path d="M672 368 L504 368" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="588" y="360.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">result</text>
+  </g>
+</svg>

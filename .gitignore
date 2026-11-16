@@ -20,3 +20,5 @@ gopath/
 # Test outputs
 *.out
 *.test
+
+_book/

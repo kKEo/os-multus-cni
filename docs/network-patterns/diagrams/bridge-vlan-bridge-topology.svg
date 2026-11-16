@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 848 400" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Linux bridge on a node</title>
+  <desc>Pods connect by veth pairs to the br-data bridge, which can hold a host IP and is enslaved to the eth1 uplink towards the switch.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-mu{fill:#94a3b8}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="848" height="400" fill="#ffffff" class="f-bg"/>
+  <g id="group-node">
+    <rect x="24" y="24" width="656" height="352" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="36" y="48.37" font-size="12" fill="#6b7280" class="f-mu">Node</text>
+  </g>
+  <g id="node-pod-a">
+    <rect x="48" y="64" width="112" height="64" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="48" y1="80" x2="160" y2="80" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="104" y="109.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">pod A net1</text>
+  </g>
+  <g id="node-pod-b">
+    <rect x="48" y="160" width="112" height="64" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="48" y1="176" x2="160" y2="176" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text x="104" y="205.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">pod B net1</text>
+  </g>
+  <g id="node-host">
+    <rect x="40" y="256" width="128" height="96" rx="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="104" y="289.09">Host IP on</tspan><tspan x="104" y="309.09">br-data</tspan><tspan x="104" y="329.09">(optional)</tspan></text>
+  </g>
+  <g id="node-br">
+    <rect x="224" y="176" width="96" height="48" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text x="272" y="205.09" text-anchor="middle" font-size="14" fill="#ffffff" class="f-at">br-data</text>
+  </g>
+  <g id="node-eth1">
+    <rect x="368" y="160" width="128" height="80" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="432" y="195.09">eth1 (uplink,</tspan><tspan x="432" y="215.09">enslaved)</tspan></text>
+  </g>
+  <g id="node-switch">
+    <rect x="728" y="176" width="96" height="48" rx="4" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" class="f-nf s-ns"/>
+    <text x="776" y="205.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Switch</text>
+  </g>
+  <g id="edge-pod-a--br">
+    <path d="M160 104 L192 104 L192 184 L224 184" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="211.24" y="148.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">veth</text>
+  </g>
+  <g id="edge-pod-b--br">
+    <path d="M160 192 L192 192 L192 200 L224 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="176" y="184.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">veth</text>
+  </g>
+  <g id="edge-host--br">
+    <path d="M168 304 L200 304 L200 216 L224 216" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-br--eth1">
+    <path d="M320 200 L368 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-eth1--switch">
+    <path d="M496 200 L728 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+</svg>

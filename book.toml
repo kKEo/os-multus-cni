@@ -1,0 +1,18 @@
+[book]
+title = "Multus CNI"
+description = "Multus CNI documentation: installation, configuration and network attachment patterns."
+language = "en"
+src = "docs"
+
+[build]
+build-dir = "_book"
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/k8snetworkplumbingwg/multus-cni"
+edit-url-template = "https://github.com/k8snetworkplumbingwg/multus-cni/edit/master/{path}"
+default-theme = "light"
+preferred-dark-theme = "navy"
+
+[output.html.search]
+enable = true

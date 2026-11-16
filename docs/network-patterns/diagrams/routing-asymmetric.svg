@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 888 392" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Asymmetric routing without sbr</title>
+  <desc>A client on another subnet reaches the pod through the router on net1, but the pod's reply follows the main default route out of eth0 and is dropped or NATed.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-no{fill:#0d1117}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="888" height="392" fill="#ffffff" class="f-bg"/>
+  <g id="node-client">
+    <line x1="104" y1="104" x2="104" y2="296" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="24" y="56" width="160" height="48" rx="24" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="104" y="85.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Client 10.99.0.7</text>
+  </g>
+  <g id="node-router">
+    <line x1="320" y1="104" x2="320" y2="296" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="232" y="56" width="176" height="48" rx="4" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" class="f-nf s-ns"/>
+    <text x="320" y="85.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Router 192.168.10.1</text>
+  </g>
+  <g id="node-net1">
+    <line x1="552" y1="104" x2="552" y2="296" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="456" y="56" width="192" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="552" y="85.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">pod net1 192.168.10.50</text>
+  </g>
+  <g id="node-eth0">
+    <line x1="784" y1="104" x2="784" y2="296" stroke="#6b7280" stroke-width="1" stroke-dasharray="4 4" class="s-mu"/>
+    <rect x="704" y="24" width="160" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="784" y="59.09">pod eth0 (default</tspan><tspan x="784" y="79.09">route)</tspan></text>
+  </g>
+  <g id="edge-client--router">
+    <path d="M104 144 L320 144" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="212" y="136.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">request</text>
+  </g>
+  <g id="edge-router--net1">
+    <path d="M320 184 L552 184" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="436" y="176.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">request arrives on net1</text>
+  </g>
+  <g id="edge-net1--eth0">
+    <path d="M552 224 L784 224" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="668" y="216.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">reply looks up main table</text>
+  </g>
+  <g id="edge-eth0--client">
+    <path d="M784 264 L104 264" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="668" y="256.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">reply via eth0: NATed or dropped</text>
+  </g>
+  <g id="note-1">
+    <line x1="552" y1="320" x2="552" y2="296" stroke="#6b7280" stroke-width="1" stroke-dasharray="2 3" class="s-mu"/>
+    <rect x="456" y="320" width="192" height="48" rx="4" fill="#ffffff" stroke="#6b7280" stroke-width="1" class="f-no s-mu"/>
+    <text text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx"><tspan x="552" y="340.37">Clients on 192.168.10.0/24</tspan><tspan x="552" y="356.37">work: connected route</tspan></text>
+  </g>
+</svg>

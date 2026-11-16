@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 656 544" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Choosing the interface plugin</title>
+  <desc>Line-rate needs lead to SR-IOV or host-device; MAC-restricted underlays lead to ipvlan; host-to-pod or VLAN trunk needs lead to bridge; everything else to macvlan.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="656" height="544" fill="#ffffff" class="f-bg"/>
+  <g id="node-perf">
+    <polygon points="448,24 568,72 448,120 328,72" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="448" y="67.09">Line rate or DPDK</tspan><tspan x="448" y="87.09">needed?</tspan></text>
+  </g>
+  <g id="node-mac">
+    <polygon points="328,168 472,216 328,264 184,216" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="328" y="211.09">Underlay accepts</tspan><tspan x="328" y="231.09">many MACs per port?</tspan></text>
+  </g>
+  <g id="node-host">
+    <polygon points="200,312 344,368 200,424 56,368" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="200" y="353.09">Node must reach pod,</tspan><tspan x="200" y="373.09">or VLAN trunks /</tspan><tspan x="200" y="393.09">VMs?</tspan></text>
+  </g>
+  <a href="sriov-host-device.md">
+  <g id="node-sriov">
+    <rect x="504" y="176" width="128" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="568" y="211.09">SR-IOV VF or</tspan><tspan x="568" y="231.09">host-device</tspan></text>
+  </g>
+  </a>
+  <a href="ipvlan.md">
+  <g id="node-ipvlan">
+    <rect x="376" y="344" width="160" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="456" y="373.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">ipvlan (L2 or L3)</text>
+  </g>
+  </a>
+  <a href="bridge-vlan.md">
+  <g id="node-bridge">
+    <rect x="24" y="472" width="144" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="96" y="501.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">bridge (+ vlan)</text>
+  </g>
+  </a>
+  <a href="macvlan.md">
+  <g id="node-macvlan">
+    <rect x="200" y="472" width="192" height="48" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text x="296" y="501.09" text-anchor="middle" font-size="14" fill="#ffffff" class="f-at">macvlan bridge mode</text>
+  </g>
+  </a>
+  <g id="edge-perf--sriov">
+    <path d="M552 78.4 L552 176" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="568.71" y="155.97" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">yes</text>
+  </g>
+  <g id="edge-perf--mac">
+    <path d="M344 78.4 L344 173.33" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="357.71" y="153.97" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">no</text>
+  </g>
+  <g id="edge-mac--ipvlan">
+    <path d="M456 221.33 L456 344" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="535.87" y="287.03" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">no (cloud, port security)</text>
+  </g>
+  <g id="edge-mac--host">
+    <path d="M200 221.33 L200 312" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="255.68" y="293.7" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">yes (bare metal)</text>
+  </g>
+  <g id="edge-host--bridge">
+    <path d="M96 383.56 L96 472" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="112.71" y="454.25" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">yes</text>
+  </g>
+  <g id="edge-host--macvlan">
+    <path d="M296 386.67 L296 472" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="309.71" y="455.03" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">no</text>
+  </g>
+</svg>

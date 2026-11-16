@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 336" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>macvlan on a node</title>
+  <desc>Two pods get macvlan children of the parent eth1, each with its own MAC; the switch learns all three MACs, and the parent cannot reach its children.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-mu{fill:#94a3b8}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="864" height="336" fill="#ffffff" class="f-bg"/>
+  <g id="group-node">
+    <rect x="24" y="24" width="608" height="288" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="36" y="48.37" font-size="12" fill="#6b7280" class="f-mu">Node</text>
+  </g>
+  <g id="node-pod-a">
+    <rect x="48" y="64" width="160" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="48" y1="80" x2="208" y2="80" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="128" y="115.09">pod A net1 (MAC</tspan><tspan x="128" y="135.09">a)</tspan></text>
+  </g>
+  <g id="node-pod-b">
+    <rect x="48" y="192" width="160" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="48" y1="208" x2="208" y2="208" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="128" y="243.09">pod B net1 (MAC</tspan><tspan x="128" y="263.09">b)</tspan></text>
+  </g>
+  <g id="node-eth1">
+    <rect x="320" y="136" width="128" height="80" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="384" y="171.09">eth1 (parent /</tspan><tspan x="384" y="191.09">master)</tspan></text>
+  </g>
+  <g id="node-switch">
+    <rect x="680" y="128" width="160" height="96" rx="4" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="6 4" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="760" y="161.09">Physical switch:</tspan><tspan x="760" y="181.09">learns MACs a,</tspan><tspan x="760" y="201.09">b, eth1</tspan></text>
+  </g>
+  <g id="edge-pod-a--eth1">
+    <path d="M208 120 L264 120 L264 152 L320 152" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="271" y="168.63" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">macvlan child</text>
+  </g>
+  <g id="edge-pod-b--eth1">
+    <path d="M208 248 L264 248 L264 200 L320 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="312.06" y="240.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">macvlan child</text>
+  </g>
+  <g id="edge-eth1--switch">
+    <path d="M448 176 L680 176" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+</svg>

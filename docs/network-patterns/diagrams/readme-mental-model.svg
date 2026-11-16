@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 624 800" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>How Multus builds a multi-homed pod</title>
+  <desc>The runtime calls Multus, which runs the cluster network for eth0 and one plugin chain per NetworkAttachmentDefinition for net1, net2 and so on.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-mu{fill:#94a3b8}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-mu{stroke:#94a3b8}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="624" height="800" fill="#ffffff" class="f-bg"/>
+  <g id="group-default">
+    <rect x="24" y="400" width="224" height="240" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="36" y="424.37" font-size="12" fill="#6b7280" class="f-mu">clusterNetwork</text>
+  </g>
+  <g id="group-nad">
+    <rect x="280" y="264" width="320" height="512" rx="8" fill="none" stroke="#6b7280" stroke-width="1" class="s-mu"/>
+    <text x="292" y="288.37" font-size="12" fill="#6b7280" class="f-mu">One chain per NAD</text>
+  </g>
+  <g id="node-runtime">
+    <rect x="200" y="24" width="176" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <line x1="200" y1="40" x2="376" y2="40" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="288" y="75.09">kubelet / container</tspan><tspan x="288" y="95.09">runtime</tspan></text>
+  </g>
+  <g id="node-multus">
+    <rect x="192" y="168" width="192" height="48" rx="8" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <text x="288" y="197.09" text-anchor="middle" font-size="14" fill="#ffffff" class="f-at">Multus (meta plugin)</text>
+  </g>
+  <g id="node-cluster">
+    <rect x="40" y="440" width="192" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="136" y="475.09">Cluster network:</tspan><tspan x="136" y="495.09">Calico, OVN-K, Cilium</tspan></text>
+  </g>
+  <g id="node-eth0">
+    <rect x="72" y="568" width="128" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="136" y="597.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">eth0 (pod IP)</text>
+  </g>
+  <g id="node-iface">
+    <rect x="360" y="304" width="160" height="96" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="440" y="337.09">Interface plugin:</tspan><tspan x="440" y="357.09">macvlan, ipvlan,</tspan><tspan x="440" y="377.09">bridge, SR-IOV</tspan></text>
+  </g>
+  <g id="node-ipam">
+    <rect x="352" y="448" width="176" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="440" y="483.09">IPAM: whereabouts,</tspan><tspan x="440" y="503.09">static, DHCP</tspan></text>
+  </g>
+  <g id="node-meta">
+    <rect x="352" y="576" width="176" height="80" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="440" y="611.09">Chained meta: sbr,</tspan><tspan x="440" y="631.09">tuning, bandwidth</tspan></text>
+  </g>
+  <g id="node-net1">
+    <rect x="376" y="704" width="128" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="440" y="733.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">net1, net2, ...</text>
+  </g>
+  <g id="edge-runtime--multus">
+    <path d="M288 120 L288 168" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="321" y="148.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">CNI ADD</text>
+  </g>
+  <g id="edge-multus--cluster">
+    <path d="M208 216 L208 416 L136 416 L136 440" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-cluster--eth0">
+    <path d="M136 520 L136 568" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-multus--iface">
+    <path d="M368 216 L368 256 L440 256 L440 304" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="457.29" y="240.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">k8s.v1.cni.cncf.io/networks</text>
+  </g>
+  <g id="edge-iface--ipam">
+    <path d="M440 400 L440 448" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-ipam--meta">
+    <path d="M440 528 L440 576" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-meta--net1">
+    <path d="M440 656 L440 704" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+</svg>

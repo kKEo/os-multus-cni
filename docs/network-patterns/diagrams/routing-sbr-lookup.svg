@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 272" data-svgdog="1" font-family="Inter, sans-serif">
+  <title>Route lookup with sbr</title>
+  <desc>A packet sourced from net1's IP matches the sbr rule and uses table 100, which leaves via net1's gateway; every other packet falls through to the main table and leaves via eth0.</desc>
+  <style>@media (prefers-color-scheme: dark){.f-af{fill:#60a5fa}.f-at{fill:#0d1117}.f-bg{fill:#0d1117}.f-ed{fill:#e5e7eb}.f-nf{fill:#1e293b}.f-tx{fill:#e5e7eb}.s-ed{stroke:#e5e7eb}.s-ns{stroke:#94a3b8}}</style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 4L0 8Z" fill="#1f2937" class="f-ed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="880" height="272" fill="#ffffff" class="f-bg"/>
+  <g id="node-pkt">
+    <rect x="24" y="112" width="160" height="48" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="104" y="141.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">Outgoing packet</text>
+  </g>
+  <g id="node-rule">
+    <polygon points="360,88 464,136 360,184 256,136" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="360" y="131.09">Source is</tspan><tspan x="360" y="151.09">192.168.10.50?</tspan></text>
+  </g>
+  <g id="node-t100">
+    <path d="M520 32 A96 8 0 0 1 712 32 L712 112 A96 8 0 0 1 520 112 Z" fill="#2563eb" stroke="#1f2937" stroke-width="1.5" class="f-af s-ns"/>
+    <path d="M520 32 A96 8 0 0 0 712 32" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#ffffff" class="f-at"><tspan x="616" y="73.09">Table 100: default via</tspan><tspan x="616" y="93.09">192.168.10.1</tspan></text>
+  </g>
+  <g id="node-main">
+    <path d="M520 160 A96 8 0 0 1 712 160 L712 240 A96 8 0 0 1 520 240 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <path d="M520 160 A96 8 0 0 0 712 160" fill="none" stroke="#1f2937" stroke-width="1.5" class="s-ns"/>
+    <text text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx"><tspan x="616" y="201.09">Main table: default via</tspan><tspan x="616" y="221.09">eth0</tspan></text>
+  </g>
+  <g id="node-net1">
+    <rect x="760" y="48" width="96" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="808" y="77.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">net1</text>
+  </g>
+  <g id="node-eth0">
+    <rect x="760" y="176" width="96" height="48" rx="8" fill="#dbeafe" stroke="#1f2937" stroke-width="1.5" class="f-nf s-ns"/>
+    <text x="808" y="205.09" text-anchor="middle" font-size="14" fill="#1f2937" class="f-tx">eth0</text>
+  </g>
+  <g id="edge-pkt--rule">
+    <path d="M184 136 L256 136" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="220" y="128.11" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">ip rule</text>
+  </g>
+  <g id="edge-rule--t100">
+    <path d="M394.67 104 L496 104 L496 80 L520 80" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="479.29" y="96.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">yes</text>
+  </g>
+  <g id="edge-rule--main">
+    <path d="M394.67 168 L496 168 L496 208 L520 208" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+    <text x="509.71" y="192.37" text-anchor="middle" font-size="12" fill="#1f2937" class="f-tx">no</text>
+  </g>
+  <g id="edge-t100--net1">
+    <path d="M712 72 L760 72" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+  <g id="edge-main--eth0">
+    <path d="M712 200 L760 200" fill="none" stroke="#1f2937" stroke-width="1.5" marker-end="url(#arrow)" class="s-ed"/>
+  </g>
+</svg>
